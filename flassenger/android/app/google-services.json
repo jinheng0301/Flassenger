@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "841986336105",
+    "project_id": "flassenger-2d861",
+    "storage_bucket": "flassenger-2d861.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841986336105:android:fa6cf8e042f40c140809f8",
+        "android_client_info": {
+          "package_name": "com.jinheng.flassenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4iTGZ6jwVyyyF1JPV44npASWOTjAymHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
