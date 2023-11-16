@@ -3,7 +3,7 @@ import 'package:flassenger/dialog/reminder_alert.dart';
 import 'package:flassenger/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flassenger/components/rounded_button.dart';
+import 'package:flassenger/widgets/rounded_button.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -74,11 +74,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 title: 'Log in',
                 color: Colors.blueAccent,
                 onPressed: () async {
-                  setState(
-                    () {
-                      showSpinner = true;
-                    },
-                  );
+                  setState(() {
+                    showSpinner = true;
+                  });
                   try {
                     final user = await _auth.signInWithEmailAndPassword(
                       email: email,
@@ -91,19 +89,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         ChatScreen.id,
                       );
                     }
-                    setState(
-                      () {
-                        showSpinner = false;
-                      },
-                    );
+                    setState(() {
+                      showSpinner = false;
+                    });
                   } catch (e) {
                     // print(e);
                     reminder_alert(context);
-                    setState(
-                      () {
-                        showSpinner = false;
-                      },
-                    );
+                    setState(() {
+                      showSpinner = false;
+                    });
                   }
                 },
               ),

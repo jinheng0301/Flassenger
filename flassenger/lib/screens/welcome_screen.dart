@@ -1,4 +1,4 @@
-import 'package:flassenger/components/rounded_button.dart';
+import 'package:flassenger/widgets/rounded_button.dart';
 import 'package:flassenger/screens/login_screen.dart';
 import 'package:flassenger/screens/registration_screen.dart';
 import 'package:flutter/material.dart';

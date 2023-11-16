@@ -1,7 +1,7 @@
 import 'package:flassenger/constants.dart';
 import 'package:flassenger/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flassenger/components/rounded_button.dart';
+import 'package:flassenger/widgets/rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -73,11 +73,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 title: 'Register',
                 color: Colors.blueAccent,
                 onPressed: () async {
-                  setState(
-                    () {
-                      showSpinner = true;
-                    },
-                  );
+                  setState(() {
+                    showSpinner = true;
+                  });
                   try {
                     final newUser = await _auth.createUserWithEmailAndPassword(
                       email: email,
@@ -89,11 +87,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         ChatScreen.id,
                       );
                     }
-                    setState(
-                    () {
+                    setState(() {
                       showSpinner = false;
-                    },
-                  );
+                    });
                   } catch (e) {
                     print(e);
                   }
