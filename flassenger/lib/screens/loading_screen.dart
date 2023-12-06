@@ -76,9 +76,12 @@ class _LoadingScreenState extends State<LoadingScreen>
                 child: Image(
                   image: AssetImage('images/messenger.png'),
                   // height: animation2.value * 80,
-                  height: 80,
+                  height: 100,
                 ),
               ),
+            ),
+            SizedBox(
+              height: 150,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 100),
