@@ -57,8 +57,8 @@ class _LoadingScreenState extends State<LoadingScreen>
   @override
   void dispose() {
     // TODO: implement dispose
-    super.dispose();
     controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -66,58 +66,58 @@ class _LoadingScreenState extends State<LoadingScreen>
     return Scaffold(
       backgroundColor: animation1.value,
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 150),
-              child: const Hero(
-                tag: 'logo',
-                child: Image(
-                  image: AssetImage('images/messenger.png'),
-                  // height: animation2.value * 80,
-                  height: 100,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 180),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: 150),
+                child: const Hero(
+                  tag: 'logo',
+                  child: Image(
+                    image: AssetImage('images/messenger.png'),
+                    // height: animation2.value * 80,
+                    height: 100,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 150,
-            ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 100),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    'from',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 100),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'from',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.facebook,
-                        size: 40,
-                      ),
-                      Text(
-                        'Meta',
-                        style: TextStyle(
-                          fontFamily: 'Pacifico',
-                          fontSize: 30,
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.facebook,
+                          size: 40,
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                        Text(
+                          'Meta',
+                          style: TextStyle(
+                            fontFamily: 'Pacifico',
+                            fontSize: 30,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

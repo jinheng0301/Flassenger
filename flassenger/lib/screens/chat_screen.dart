@@ -1,5 +1,6 @@
 import 'package:flassenger/constants.dart';
 import 'package:flassenger/dialog/logOut_alert.dart';
+import 'package:flassenger/widgets/message_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -108,112 +109,112 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 }
 
-class MessagesStream extends StatelessWidget {
-  const MessagesStream({super.key});
+// class MessagesStream extends StatelessWidget {
+//   const MessagesStream({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return StreamBuilder<QuerySnapshot>(
-      //在你的代码中，通过以下方式监听 Firebase 数据：
-      stream: _firestore.collection('messages').snapshots(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          final messages = snapshot.data!.docs.reversed;
-          final currentUser = loggedInUser!.email;
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder<QuerySnapshot>(
+//       //在你的代码中，通过以下方式监听 Firebase 数据：
+//       stream: _firestore.collection('messages').snapshots(),
+//       builder: (context, snapshot) {
+//         if (snapshot.hasData) {
+//           final messages = snapshot.data!.docs.reversed;
+//           final currentUser = loggedInUser!.email;
 
-          // 有新数据到达时执行这里的代码
-          // 处理数据并构建UI，比如显示聊天消息
-          List<MessageBubble> messageBubbles = [];
-          for (var message in messages) {
-            final messageText = message['text'];
-            final messageSender = message['sender'];
-            final messageBubble = MessageBubble(
-              sender: messageSender,
-              text: messageText,
-              isMe: currentUser == messageSender,
-            );
+//           // 有新数据到达时执行这里的代码
+//           // 处理数据并构建UI，比如显示聊天消息
+//           List<MessageBubble> messageBubbles = [];
+//           for (var message in messages) {
+//             final messageText = message['text'];
+//             final messageSender = message['sender'];
+//             final messageBubble = MessageBubble(
+//               sender: messageSender,
+//               text: messageText,
+//               isMe: currentUser == messageSender,
+//             );
 
-            messageBubbles.add(messageBubble);
-          }
-          return Expanded(
-            child: ListView(
-              reverse: true,
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
-              ),
-              children: messageBubbles,
-            ),
-          );
-        } else {
-          // 当没有数据或数据正在加载时执行这里的代码
-          // 显示加载指示器
-          return const Center(
-            child: CircularProgressIndicator(
-              backgroundColor: Colors.amber,
-            ),
-          );
-        }
-      },
-    );
-  }
-}
+//             messageBubbles.add(messageBubble);
+//           }
+//           return Expanded(
+//             child: ListView(
+//               reverse: true,
+//               padding: const EdgeInsets.symmetric(
+//                 vertical: 20,
+//                 horizontal: 10,
+//               ),
+//               children: messageBubbles,
+//             ),
+//           );
+//         } else {
+//           // 当没有数据或数据正在加载时执行这里的代码
+//           // 显示加载指示器
+//           return const Center(
+//             child: CircularProgressIndicator(
+//               backgroundColor: Colors.amber,
+//             ),
+//           );
+//         }
+//       },
+//     );
+//   }
+// }
 
-class MessageBubble extends StatelessWidget {
-  MessageBubble({
-    required this.sender,
-    required this.text,
-    required this.isMe,
-  });
+// class MessageBubble extends StatelessWidget {
+//   MessageBubble({
+//     required this.sender,
+//     required this.text,
+//     required this.isMe,
+//   });
 
-  final String sender, text;
-  final bool isMe;
+//   final String sender, text;
+//   final bool isMe;
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment:
-            isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-        children: [
-          Text(
-            sender,
-            style: const TextStyle(
-              fontSize: 15,
-              color: Colors.black54,
-            ),
-          ),
-          Material(
-            elevation: 10,
-            borderRadius: isMe
-                ? const BorderRadius.only(
-                    topLeft: Radius.circular(30),
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  )
-                : const BorderRadius.only(
-                    topRight: Radius.circular(30),
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                  ),
-            color: isMe ? Colors.lightBlueAccent : Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 10,
-              ),
-              child: Text(
-                '$text',
-                style: TextStyle(
-                  color: isMe ? Colors.white : Colors.black,
-                  fontSize: 15,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Padding(
+//       padding: const EdgeInsets.all(10.0),
+//       child: Column(
+//         crossAxisAlignment:
+//             isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+//         children: [
+//           Text(
+//             sender,
+//             style: const TextStyle(
+//               fontSize: 15,
+//               color: Colors.black54,
+//             ),
+//           ),
+//           Material(
+//             elevation: 10,
+//             borderRadius: isMe
+//                 ? const BorderRadius.only(
+//                     topLeft: Radius.circular(30),
+//                     bottomLeft: Radius.circular(30),
+//                     bottomRight: Radius.circular(30),
+//                   )
+//                 : const BorderRadius.only(
+//                     topRight: Radius.circular(30),
+//                     bottomLeft: Radius.circular(30),
+//                     bottomRight: Radius.circular(30),
+//                   ),
+//             color: isMe ? Colors.lightBlueAccent : Colors.white,
+//             child: Padding(
+//               padding: const EdgeInsets.symmetric(
+//                 vertical: 20,
+//                 horizontal: 10,
+//               ),
+//               child: Text(
+//                 '$text',
+//                 style: TextStyle(
+//                   color: isMe ? Colors.white : Colors.black,
+//                   fontSize: 15,
+//                 ),
+//               ),
+//             ),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }

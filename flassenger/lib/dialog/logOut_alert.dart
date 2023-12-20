@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flassenger/screens/loading_screen.dart';
+import 'package:flassenger/screens/welcome_screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'package:flutter/material.dart';
 
@@ -45,10 +46,7 @@ logOut_alert(context) {
         ),
         onPressed: () {
           _auth.signOut();
-          Navigator.pushNamed(
-            context,
-            LoadingScreen.id,
-          );
+          Navigator.pushReplacementNamed(context, WelcomeScreen.id);
           print('Log out successfully!');
         },
       ),

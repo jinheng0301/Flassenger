@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flassenger/screens/chat_screen.dart';
 import 'package:flassenger/screens/loading_screen.dart';
@@ -40,6 +41,25 @@ class Flassenger extends StatelessWidget {
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ChatScreen.id: (context) => ChatScreen(),
       },
+
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.active) {
+            if (snapshot.hasData) {
+              return ChatScreen();
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('Some error is occured'),
+              );
+            }
+          } else if (snapshot.connectionState == ConnectionState.waiting) {
+            return LoadingScreen();
+          }
+
+          return WelcomeScreen();
+        },
+      ),
     );
   }
 }

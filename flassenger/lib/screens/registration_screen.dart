@@ -17,6 +17,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   bool showSpinner = false;
   late String email;
   late String password;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
