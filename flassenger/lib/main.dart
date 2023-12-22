@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flassenger/screens/chat_screen.dart';
 import 'package:flassenger/screens/loading_screen.dart';
-import 'package:flassenger/screens/login_screen.dart';
-import 'package:flassenger/screens/registration_screen.dart';
 import 'package:flassenger/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
