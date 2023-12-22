@@ -83,9 +83,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                       password: password,
                     );
                     if (newUser != null) {
-                      Navigator.pushNamed(
+                      Navigator.pushReplacement(
                         context,
-                        ChatScreen.id,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => ChatScreen(),
+                        ),
                       );
                     }
                     setState(() {

@@ -85,9 +85,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     );
                     if (user != null) {
                       print('Log in successfully!');
-                      Navigator.pushNamed(
+                      Navigator.pushReplacement(
                         context,
-                        ChatScreen.id,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => ChatScreen(),
+                        ),
                       );
                     }
                     setState(() {

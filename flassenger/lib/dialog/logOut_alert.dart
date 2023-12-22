@@ -46,7 +46,12 @@ logOut_alert(context) {
         ),
         onPressed: () {
           _auth.signOut();
-          Navigator.pushReplacementNamed(context, WelcomeScreen.id);
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => WelcomeScreen(),
+            ),
+          );
           print('Log out successfully!');
         },
       ),

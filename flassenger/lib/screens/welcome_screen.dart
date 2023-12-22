@@ -34,17 +34,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
     controller.forward();
 
-    // animation.addStatusListener(
-    //   (status) {
-    //     // print(status);
-    //     if (status == AnimationStatus.completed) {
-    //       controller.reverse(from: 1.0);
-    //     } else if (status == AnimationStatus.dismissed) {
-    //       controller.forward();
-    //     }
-    //   },
-    // );
-
     controller.addListener(
       () {
         setState(() {});
@@ -55,6 +44,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   void dispose() {
     // TODO: implement dispose
+    if (controller.isAnimating) {
+      controller.stop(); // Stop the animation if it's still running.
+    }
     super.dispose();
     controller.dispose();
   }
@@ -80,17 +72,25 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 const SizedBox(
                   height: 20,
                 ),
-                AnimatedTextKit(
-                  animatedTexts: [
-                    TyperAnimatedText(
-                      'Flassenger',
-                      textStyle: const TextStyle(
-                        fontSize: 45.0,
-                        fontFamily: 'Pacifico',
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                  ],
+                // AnimatedTextKit(
+                //   animatedTexts: [
+                //     TyperAnimatedText(
+                //       'Flassenger',
+                //       textStyle: const TextStyle(
+                //         fontSize: 45.0,
+                //         fontFamily: 'Pacifico',
+                //         fontWeight: FontWeight.w300,
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                Text(
+                  'Flassenger',
+                  style: TextStyle(
+                    fontSize: 45.0,
+                    fontFamily: 'Pacifico',
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -112,9 +112,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               color: Colors.blueAccent,
               onPressed: () {
                 //Go to login screen.
-                Navigator.pushNamed(
+                Navigator.pushReplacement(
                   context,
-                  LoginScreen.id,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => LoginScreen(),
+                  ),
                 );
               },
             ),
@@ -123,9 +125,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               color: Colors.blueAccent,
               onPressed: () {
                 //Go to register screen.
-                Navigator.pushNamed(
+                Navigator.pushReplacement(
                   context,
-                  RegistrationScreen.id,
+                  MaterialPageRoute<void>(
+                    builder: (BuildContext context) => RegistrationScreen(),
+                  ),
                 );
               },
             ),

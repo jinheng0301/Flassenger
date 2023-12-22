@@ -57,6 +57,9 @@ class _LoadingScreenState extends State<LoadingScreen>
   @override
   void dispose() {
     // TODO: implement dispose
+    if (controller.isAnimating) {
+      controller.stop(); // Stop the animation if it's still running.
+    }
     controller.dispose();
     super.dispose();
   }

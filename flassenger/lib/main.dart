@@ -33,14 +33,14 @@ class Flassenger extends StatelessWidget {
       //   ),
       // ),
       initialRoute: LoadingScreen.id,
-      routes: {
-        // 'welcome_screen': (context) => WelcomeScreen,
-        LoadingScreen.id: (context) => LoadingScreen(),
-        WelcomeScreen.id: (context) => WelcomeScreen(),
-        LoginScreen.id: (context) => LoginScreen(),
-        RegistrationScreen.id: (context) => RegistrationScreen(),
-        ChatScreen.id: (context) => ChatScreen(),
-      },
+      // routes: {
+      //   // 'welcome_screen': (context) => WelcomeScreen,
+      //   LoadingScreen.id: (context) => LoadingScreen(),
+      //   WelcomeScreen.id: (context) => WelcomeScreen(),
+      //   LoginScreen.id: (context) => LoginScreen(),
+      //   RegistrationScreen.id: (context) => RegistrationScreen(),
+      //   ChatScreen.id: (context) => ChatScreen(),
+      // },
 
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
