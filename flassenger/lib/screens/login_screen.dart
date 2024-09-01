@@ -79,20 +79,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     showSpinner = true;
                   });
                   try {
-                    final user = await _auth.signInWithEmailAndPassword(
+                    await _auth.signInWithEmailAndPassword(
                       email: email,
                       password: password,
                     );
-                    if (user != null) {
-                      print('Log in successfully!');
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute<void>(
-                          builder: (BuildContext context) => ChatScreen(),
-                        ),
-                      );
-                    }
-                    setState(() {
+                    print('Log in successfully!');
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => ChatScreen(),
+                      ),
+                    );
+                                      setState(() {
                       showSpinner = false;
                     });
                   } catch (e) {

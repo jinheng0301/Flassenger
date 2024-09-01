@@ -1,5 +1,5 @@
 import 'package:flassenger/constants.dart';
-import 'package:flassenger/dialog/logOut_alert.dart';
+import 'package:flassenger/dialog/log_out_alert.dart';
 import 'package:flassenger/widgets/message_stream.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -91,7 +91,8 @@ class _ChatScreenState extends State<ChatScreen> {
                         {
                           'text': messageText,
                           'sender': loggedInUser
-                              ?.email, //sender field is gonna have the email address of the logged in user
+                              ?.email,
+                               //sender field is gonna have the email address of the logged in user
                         },
                       );
                       messageTextController.clear();

@@ -18,15 +18,17 @@ logOut_alert(context) {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          height: 20,
+          height: 10,
         ),
         Container(
           width: 200,
           height: 50,
-          margin: EdgeInsets.only(top: 20),
           child: Text(
             'Are you sure want to log out?',
           ),
+        ),
+        SizedBox(
+          height: 10,
         ),
       ],
     ),
